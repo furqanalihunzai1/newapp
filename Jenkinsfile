@@ -1,25 +1,18 @@
+
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker rmi furqanalihunzai/assignment:latest -f'
-                sh 'docker build -t furqanalihunzai/assignment:latest . '
-            }
+    agent {
+        any {
+            image 'docker:stable-dind'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
-        
-        stage('login') {
+    }
+    stages {
+        stage('Build and Push Docker Image') {
             steps {
                 sh 'docker login -u furqanalihunzai -p Hunza123.'
-           }
-        }
-        
-        stage('push') {
-            steps {
-        sh 'docker push furqanalihunzai/assignment:latest'
-      
+                sh 'docker-compose build'
+                sh 'docker-compose push'
             }
-        }   
-        
-       }    
+        }
+    }
 }
