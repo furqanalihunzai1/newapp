@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    
+    triggers {
+        github(
+            triggerOnPush: true,
+            triggerOnPullRequest: true,
+            branches: [
+                'DEV'
+            ]
+        )
+    }
+    
+    stages {
+        stage('Checkout code') {
+            steps {
+                git branch: 'DEV',
+                        credentialsId: 'github-credentials',
+                        url: 'https://github.com/furqanalihunzai1/newapp.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Perform build steps
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Perform test steps
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Perform deployment steps
+            }
+        }
+    }
+}
