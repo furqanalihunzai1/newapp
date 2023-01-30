@@ -6,6 +6,7 @@ services:
     build:
       context: ./my-app
       dockerfile: Dockerfile
+      image: furqanalihunzai/taskfront:latest
     ports:
      - "3001:3000"
     environment:
@@ -19,6 +20,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+      image: furqanalihunzai/taskback:latest
     ports:
      - "8000:8000"
     environment:
