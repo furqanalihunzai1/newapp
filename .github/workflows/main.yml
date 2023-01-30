@@ -30,7 +30,7 @@ jobs:
         type: now
         from_branch: DEV
         target_branch: PROD
-        github_token: ${{ GITHUB_TOKEN }}
+        github_token: ${{ secrets.GIT_TOKEN }}
     
 
 #     - name: Merge DEV into PROD
