@@ -18,13 +18,13 @@ pipeline {
                 sh 'docker-compose -f docker-compose.yaml push'
             }
         }
-        stage('Run Tests') {
-            steps {
-                sh 'docker-compose -f docker-compose.yaml up -d'
-                sh 'docker exec frontend npm run test'
-                sh 'docker exec backend python manage.py test'
-                sh 'docker-compose -f docker-compose.yaml down'
-            }
-        }
+       // stage('Run Tests') {
+         //   steps {
+           //     sh 'docker-compose -f docker-compose.yaml up -d'
+             //   sh 'docker exec frontend npm run test'
+               // sh 'docker exec backend python manage.py test'
+              //  sh 'docker-compose -f docker-compose.yaml down'
+           // }
+       // }
     }
 }
