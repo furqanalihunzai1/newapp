@@ -1,9 +1,9 @@
 name: Deploy to PROD
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - DEV
+    branches: [ DEV ]
 
 env:
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
