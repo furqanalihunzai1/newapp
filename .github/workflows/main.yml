@@ -23,11 +23,20 @@ jobs:
         echo "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com" > ~/.git-credentials
         git config credential.helper store
 
-    - name: Merge DEV into PROD
-      run: |
-        git checkout PROD
-        git merge DEV
+#     - name: Merge DEV into PROD
+#       run: |
+#         git checkout PROD
+#         git merge DEV
 
-    - name: Push changes to PROD
-      run: |
-        git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/furqanalihunzai1/appdocker.git HEAD:PROD
+#     - name: Push changes to PROD
+#       run: |
+#         git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/furqanalihunzai1/appdocker.git HEAD:PROD
+
+
+    - name: Merge development -> staging
+      uses: devmasx/merge-branch@master
+      with:
+        type: now
+        from_branch: DEV
+        target_branch: PROD
+        github_token: ${{ GITHUB_TOKEN }}
