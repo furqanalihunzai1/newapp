@@ -2,8 +2,8 @@
 pipeline {
     agent {
         any {
-            image 'docker:stable-dind'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            
+            
         }
     }
     stages {
@@ -11,8 +11,8 @@ pipeline {
             steps {
                 
                 sh 'docker login -u furqanalihunzai -p Hunza123.'
-                sh 'docker-compose build'
-                sh 'docker-compose push'
+                sh 'docker compose build'
+                sh 'docker compose push'
             }
         }
     }
