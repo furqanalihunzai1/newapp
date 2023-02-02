@@ -21,6 +21,6 @@ services:
     ports:
      - "8000:8000"
     environment:
-     - MONGO_URI=mongodb+srv://furqan:1234@cluster0.ta4asmf.mongodb.net/?retryWrites=true&w=majority
+     - MONGO_URI=mongodb+srv://furqan:1234@wrong.ta4asmf.mongodb.net/?retryWrites=true&w=majority
      
     restart: always
